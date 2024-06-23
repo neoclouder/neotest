@@ -19,9 +19,9 @@ if(NEOTEST_STANDALONE AND NEOTEST_ENABLE_CLANG_FORMAT)
       "tests/*.h"
       "include/**/*.h")
 
-    add_custom_target(clang-format ALL COMMAND ${CLANG_FORMAT_EXE} -style=file -i
+    add_custom_target(${NEOTEST_NAME}-clang-format ALL COMMAND ${CLANG_FORMAT_EXE} -style=file -i
                                            ${ALL_SOURCES})
-    add_custom_target(clang-format-check ALL COMMAND ${CLANG_FORMAT_EXE}
+    add_custom_target(${NEOTEST_NAME}-clang-format-check ALL COMMAND ${CLANG_FORMAT_EXE}
                         -style=file
                         --dry-run
                         --Werror

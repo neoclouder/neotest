@@ -20,7 +20,7 @@ option(NEOTEST_BUILD_EXAMPLES      "Build the examples"                   OFF)
 option(NEOTEST_ENABLE_COVERAGE     "Enable Code Coverage"                 OFF)
 option(NEOTEST_ENABLE_CLANG_TIDY   "Enable clang-tidy. (static analysis)" OFF)
 option(NEOTEST_ENABLE_CLANG_FORMAT "Enable clang-format. (formatting)"    OFF)
-option(NEOTEST_BUILD_DOC           "Buikd the documentation"              OFF)
+option(NEOTEST_BUILD_DOC           "Build the documentation"              OFF)
 option(NEOTEST_ENABLE_SANITIZERS   "Enable sanitizers"                    OFF)
 
 # Messages
