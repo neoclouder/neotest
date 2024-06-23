@@ -1,4 +1,4 @@
-if(NEOTEST_ENABLE_CLANG_TIDY)
+if(NEOTEST_STANDALONE AND NEOTEST_ENABLE_CLANG_TIDY)
   # find clang-tidy program
   find_program(
     CLANG_TIDY_EXE

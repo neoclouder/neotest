@@ -1,4 +1,4 @@
-if(NEOTEST_ENABLE_CLANG_FORMAT)
+if(NEOTEST_STANDALONE AND NEOTEST_ENABLE_CLANG_FORMAT)
   # find clang-format executable
   find_program(
     CLANG_FORMAT_EXE

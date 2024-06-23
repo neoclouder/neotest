@@ -1,4 +1,4 @@
-if (NEOTEST_BUILD_DOC)
+if (NEOTEST_STANDALONE AND NEOTEST_BUILD_DOC)
     # doxygen documentation (https://vicrucann.github.io/tutorials/quick-cmake-doxygen/)
     # check if Doxygen is installed
     find_package(Doxygen)

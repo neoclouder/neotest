@@ -11,6 +11,8 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 # Generate compile_commands.json
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+string(COMPARE EQUAL "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_SOURCE_DIR}" NEOTEST_STANDALONE)
+
 # Options
 option(NEOTEST_ENABLE_WARNINGS     "Add warnings to a target"             OFF)
 option(NEOTEST_BUILD_TESTS         "Build Unit Tests"                     OFF)

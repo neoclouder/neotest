@@ -12,7 +12,7 @@ endif()
 
 # Function to add coverage instrumentation to a target
 function(neo_add_coverage target)
-    if(NEOTEST_ENABLE_COVERAGE)
+    if(NEOTEST_STANDALONE AND NEOTEST_ENABLE_COVERAGE)
         find_program(LCOV_EXECUTABLE lcov)
         find_program(GCOV_EXECUTABLE gcov)
         find_program(GENHTML_EXECUTABLE genhtml)
@@ -42,7 +42,7 @@ function(neo_add_coverage target)
 endfunction()
 
 function(neo_enable_coverage_reports targets)
-    if(NEOTEST_ENABLE_COVERAGE)
+    if(NEOTEST_STANDALONE AND NEOTEST_ENABLE_COVERAGE)
         message(STATUS "Generating coverage reports...")
 
         # Variables for commands
