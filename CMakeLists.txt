@@ -34,7 +34,7 @@ message(STATUS "NEOTEST_BUILD_DOC:           ${NEOTEST_BUILD_DOC}")
 message(STATUS "NEOTEST_ENABLE_SANITIZERS:   ${NEOTEST_ENABLE_SANITIZERS}")
 
 # --- CMake Modules
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 include(FetchContent)
 include(NeoBuildType)
