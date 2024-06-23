@@ -1,0 +1,5 @@
+function(neo_set_warnings target)
+    if(NEOTEST_ENABLE_WARNINGS)
+        target_compile_options(${target} PRIVATE -Wall -Wextra -Wpedantic -Werror)
+    endif()
+endfunction()

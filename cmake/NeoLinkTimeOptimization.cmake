@@ -1,0 +1,23 @@
+include(CheckIPOSupported)
+
+function(neo_enable_lto target)
+    if(NOT CMAKE_BUILD_TYPE STREQUAL "Debug")
+        if(NOT ${CMAKE_SYSTEM_NAME} STREQUAL "Darwin") # Darwin is the system name for macOS
+            check_ipo_supported(RESULT LTO_SUPPORTED OUTPUT LTO_ERROR)
+            if(LTO_SUPPORTED)
+                # Explicitly set the compiler and linker flags for GCC
+                if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+                    target_compile_options(${target} PRIVATE -flto)
+                    target_link_options(${target} PRIVATE -flto)
+                endif()
+                set_target_properties(${target} PROPERTIES INTERPROCEDURAL_OPTIMIZATION TRUE)
+            else()
+                message(WARNING "IPO is not supported for target ${target}: ${LTO_ERROR}")
+            endif()
+        else()
+            message(STATUS "Skipping IPO for target ${target} on macOS")
+        endif()
+    else()
+        message(STATUS "Skipping IPO for target ${target} in Debug build type")
+    endif()
+endfunction()
