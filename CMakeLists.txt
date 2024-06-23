@@ -24,6 +24,7 @@ option(NEOTEST_BUILD_DOC           "Buikd the documentation"              OFF)
 option(NEOTEST_ENABLE_SANITIZERS   "Enable sanitizers"                    OFF)
 
 # Messages
+message(STATUS "NEOTEST_STANDALONE:          ${NEOTEST_STANDALONE}")
 message(STATUS "NEOTEST_ENABLE_WARNINGS:     ${NEOTEST_ENABLE_WARNINGS}")
 message(STATUS "NEOTEST_BUILD_TESTS:         ${NEOTEST_BUILD_TESTS}")
 message(STATUS "NEOTEST_ENABLE_COVERAGE:     ${NEOTEST_ENABLE_COVERAGE}")
