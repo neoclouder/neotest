@@ -1,0 +1,8 @@
+function(neo_set_warnings target)
+    if(NEOTEST_STANDALONE AND NEOTEST_ENABLE_WARNINGS)
+        message(STATUS "Enabling Compiler Warning Options for target ${target}")
+        target_compile_options(${target} PRIVATE -Wall -Wextra -Wpedantic -Werror)
+    else ()
+        message(STATUS "Skipping Compiler Warning Options for target ${target}")
+    endif()
+endfunction()
