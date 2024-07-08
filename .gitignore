@@ -1,4 +1,7 @@
+.bak
 .cache
 .idea
 build
 DoxyDoc
+_CPack_Packages
+*.zip

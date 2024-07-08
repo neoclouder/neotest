@@ -25,7 +25,7 @@ Checks: >-
   -readability-function-cognitive-complexity,
   -readability-magic-numbers'
 WarningsAsErrors: '*'
-HeaderFilterRegex: '.*\.[h|inl]$'
+HeaderFilterRegex: '.*\.[h|inl]$|^(?!.*(vcpkg|_deps|external)).*'
 FormatStyle: 'file'
 CheckOptions:
   - key: readability-braces-around-statements.ShortStatementLines

@@ -2,7 +2,7 @@ include(CheckIPOSupported)
 
 function(neo_enable_lto target)
     if(NOT CMAKE_BUILD_TYPE STREQUAL "Debug")
-        if(NOT (${CMAKE_SYSTEM_NAME} STREQUAL "Darwin"))
+        if(NOT ${CMAKE_SYSTEM_NAME} STREQUAL "Darwin")
             check_ipo_supported(RESULT LTO_SUPPORTED OUTPUT LTO_ERROR)
             if(LTO_SUPPORTED)
                 message(STATUS "Enabling IPO for target ${target}")
