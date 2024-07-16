@@ -1,3 +1,4 @@
+#include <limits.h>
 #include <neotest/neotest.h>
 #include <stdint.h>
 
@@ -21,14 +22,14 @@ void test_str_assertions(void) {
 }
 
 void test_int_assertions(void) {
-    tst_assert_short("Testing short assertion", 32767, 32767);
-    tst_assert_int("Testing int assertion", 2147483647, 2147483647);
-    tst_assert_long("Testing long assertion", 9223372036854775807L, 9223372036854775807L);
-    tst_assert_long_long("Testing long long assertion", 9223372036854775807LL, 9223372036854775807LL);
-    tst_assert_ushort("Testing unsigned short assertion", 65535, 65535);
-    tst_assert_uint("Testing unsigned int assertion", 4294967295U, 4294967295U);
-    tst_assert_ulong("Testing unsigned long assertion", 18446744073709551615UL, 18446744073709551615UL);
-    tst_assert_ulong_long("Testing unsigned long long assertion", 18446744073709551615ULL, 18446744073709551615ULL);
+    tst_assert_short("Testing short assertion", SHRT_MAX, SHRT_MAX);
+    tst_assert_int("Testing int assertion", INT_MAX, INT_MAX);
+    tst_assert_long("Testing long assertion", LONG_MAX, LONG_MAX);
+    tst_assert_long_long("Testing long long assertion", LONG_LONG_MAX, LONG_LONG_MAX);
+    tst_assert_ushort("Testing unsigned short assertion", USHRT_MAX, USHRT_MAX);
+    tst_assert_uint("Testing unsigned int assertion", UINT_MAX, UINT_MAX);
+    tst_assert_ulong("Testing unsigned long assertion", ULONG_MAX, ULONG_MAX);
+    tst_assert_ulong_long("Testing unsigned long long assertion", ULONG_LONG_MAX, ULONG_LONG_MAX);
     tst_assert_int8("Testing int8_t assertion", INT8_MIN, INT8_MIN);
     tst_assert_int16("Testing int16_t assertion", INT16_MIN, INT16_MIN);
     tst_assert_int32("Testing int32_t assertion", INT32_MIN, INT32_MIN);

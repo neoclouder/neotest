@@ -11,35 +11,35 @@ else()
 endif()
 
 # Function to add coverage instrumentation to a target
-function(neo_add_coverage target)
-    if(NEOTEST_STANDALONE AND NEOTEST_ENABLE_COVERAGE)
-        find_program(LCOV_EXECUTABLE lcov)
-        find_program(GCOV_EXECUTABLE gcov)
-        find_program(GENHTML_EXECUTABLE genhtml)
-
-        if(NOT LCOV_EXECUTABLE)
-            message(FATAL_ERROR "lcov not found! Please install lcov.")
-        endif()
-
-        if(NOT GCOV_EXECUTABLE)
-            message(FATAL_ERROR "gcov not found! Please install gcov.")
-        endif()
-
-        if(NOT GENHTML_EXECUTABLE)
-            message(FATAL_ERROR "genhtml not found! Please install genhtml.")
-        endif()
-
-        if(CMAKE_C_COMPILER_ID MATCHES "GNU|Clang")
-            message(STATUS "Enabling Coverage for target: ${target}")
-
-            # Add compiler flags for coverage instrumentation
-            target_compile_options(${target} PRIVATE --coverage)
-            target_link_options(${target} PRIVATE --coverage)
-        else()
-            message(WARNING "Coverage is only supported for GNU GCC and Clang compilers.")
-        endif()
-    endif()
-endfunction()
+#function(neo_add_coverage target)
+#    if(NEOTEST_STANDALONE AND NEOTEST_ENABLE_COVERAGE)
+#        find_program(LCOV_EXECUTABLE lcov)
+#        find_program(GCOV_EXECUTABLE gcov)
+#        find_program(GENHTML_EXECUTABLE genhtml)
+#
+#        if(NOT LCOV_EXECUTABLE)
+#            message(FATAL_ERROR "lcov not found! Please install lcov.")
+#        endif()
+#
+#        if(NOT GCOV_EXECUTABLE)
+#            message(FATAL_ERROR "gcov not found! Please install gcov.")
+#        endif()
+#
+#        if(NOT GENHTML_EXECUTABLE)
+#            message(FATAL_ERROR "genhtml not found! Please install genhtml.")
+#        endif()
+#
+#        if(CMAKE_C_COMPILER_ID MATCHES "GNU|Clang")
+#            message(STATUS "Enabling Coverage for target: ${target}")
+#
+#            # Add compiler flags for coverage instrumentation
+#            target_compile_options(${target} PRIVATE --coverage)
+#            target_link_options(${target} PRIVATE --coverage)
+#        else()
+#            message(WARNING "Coverage is only supported for GNU GCC and Clang compilers.")
+#        endif()
+#    endif()
+#endfunction()
 
 function(neo_enable_coverage_reports targets)
     if(NEOTEST_STANDALONE AND NEOTEST_ENABLE_COVERAGE)

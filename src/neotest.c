@@ -12,7 +12,7 @@ static jmp_buf assert_error;
 const float FLOAT_EPSILON = 1e-5f;
 const double DOUBLE_EPSILON = 1e-8;
 
-int tst_run_tests(const tst_TestCase test_cases[], int num_tests) {
+int tst_run_tests(const tst_TestCase test_cases[], const int num_tests) {
     int tests_run = 0;
     int tests_passed = 0;
     int tests_failed = 0;
@@ -52,7 +52,7 @@ void tst_succeed(const char *message) {
     printf("\tSUCCESS(%s)\n", message);
 }
 
-void tst_assert_true(const char *message, bool comparison_result) {
+void tst_assert_true(const char *message, const bool comparison_result) {
     if (!comparison_result) {
         printf("\tERROR(%s): expected <true> got <false>\n", message);
         longjmp(assert_error, 1);
@@ -61,7 +61,7 @@ void tst_assert_true(const char *message, bool comparison_result) {
     }
 }
 
-void tst_assert_false(const char *message, bool comparison_result) {
+void tst_assert_false(const char *message, const bool comparison_result) {
     if (comparison_result) {
         printf("\tERROR(%s): expected <false> got <true>\n", message);
         longjmp(assert_error, 1);
@@ -70,7 +70,7 @@ void tst_assert_false(const char *message, bool comparison_result) {
     }
 }
 
-void tst_assert_char(const char *message, char expected, char actual) {
+void tst_assert_char(const char *message, const char expected, const char actual) {
     if (expected != actual) {
         printf("\tERROR(%s): expected <%d> and got <%d> \n", message, expected, actual);
         longjmp(assert_error, 1);
@@ -79,7 +79,7 @@ void tst_assert_char(const char *message, char expected, char actual) {
     }
 }
 
-void tst_assert_schar(const char *message, signed char expected, signed char actual) {
+void tst_assert_schar(const char *message, const signed char expected, const signed char actual) {
     if (expected != actual) {
         printf("\tERROR(%s): expected <%d> and got <%d> \n", message, expected, actual);
         longjmp(assert_error, 1);
@@ -88,7 +88,7 @@ void tst_assert_schar(const char *message, signed char expected, signed char act
     }
 }
 
-void tst_assert_uchar(const char *message, unsigned char expected, unsigned char actual) {
+void tst_assert_uchar(const char *message, const unsigned char expected, const unsigned char actual) {
     if (expected != actual) {
         printf("\tERROR(%s): expected <%u> and got <%u> \n", message, expected, actual);
         longjmp(assert_error, 1);
@@ -97,7 +97,7 @@ void tst_assert_uchar(const char *message, unsigned char expected, unsigned char
     }
 }
 
-void tst_assert_short(const char *message, short expected, short actual) {
+void tst_assert_short(const char *message, const short expected, const short actual) {
     if (expected != actual) {
         printf("\tERROR(%s): expected <%hd> and got <%hd> \n", message, expected, actual);
         longjmp(assert_error, 1);
@@ -106,7 +106,7 @@ void tst_assert_short(const char *message, short expected, short actual) {
     }
 }
 
-void tst_assert_int(const char *message, int expected, int actual) {
+void tst_assert_int(const char *message, const int expected, const int actual) {
     if (expected != actual) {
         printf("\tERROR(%s): expected <%d> and got <%d> \n", message, expected, actual);
         longjmp(assert_error, 1);
@@ -115,7 +115,7 @@ void tst_assert_int(const char *message, int expected, int actual) {
     }
 }
 
-void tst_assert_long(const char *message, long expected, long actual) {
+void tst_assert_long(const char *message, const long expected, const long actual) {
     if (expected != actual) {
         printf("\tERROR(%s): expected <%ld> and got <%ld> \n", message, expected, actual);
         longjmp(assert_error, 1);
@@ -124,7 +124,7 @@ void tst_assert_long(const char *message, long expected, long actual) {
     }
 }
 
-void tst_assert_long_long(const char *message, long long expected, long long actual) {
+void tst_assert_long_long(const char *message, const long long expected, const long long actual) {
     if (expected != actual) {
         printf("\tERROR(%s): expected <%lld> and got <%lld> \n", message, expected, actual);
         longjmp(assert_error, 1);
@@ -133,7 +133,7 @@ void tst_assert_long_long(const char *message, long long expected, long long act
     }
 }
 
-void tst_assert_ushort(const char *message, unsigned short expected, unsigned short actual) {
+void tst_assert_ushort(const char *message, const unsigned short expected, const unsigned short actual) {
     if (expected != actual) {
         printf("\tERROR(%s): expected <%hu> and got <%hu> \n", message, expected, actual);
         longjmp(assert_error, 1);
@@ -142,7 +142,7 @@ void tst_assert_ushort(const char *message, unsigned short expected, unsigned sh
     }
 }
 
-void tst_assert_uint(const char *message, unsigned int expected, unsigned int actual) {
+void tst_assert_uint(const char *message, const unsigned int expected, const unsigned int actual) {
     if (expected != actual) {
         printf("\tERROR(%s): expected <%u> and got <%u> \n", message, expected, actual);
         longjmp(assert_error, 1);
@@ -151,7 +151,7 @@ void tst_assert_uint(const char *message, unsigned int expected, unsigned int ac
     }
 }
 
-void tst_assert_ulong(const char *message, unsigned long expected, unsigned long actual) {
+void tst_assert_ulong(const char *message, const unsigned long expected, const unsigned long actual) {
     if (expected != actual) {
         printf("\tERROR(%s): expected <%lu> and got <%lu> \n", message, expected, actual);
         longjmp(assert_error, 1);
@@ -160,7 +160,7 @@ void tst_assert_ulong(const char *message, unsigned long expected, unsigned long
     }
 }
 
-void tst_assert_ulong_long(const char *message, unsigned long long expected, unsigned long long actual) {
+void tst_assert_ulong_long(const char *message, const unsigned long long expected, const unsigned long long actual) {
     if (expected != actual) {
         printf("\tERROR(%s): expected <%llu> and got <%llu> \n", message, expected, actual);
         longjmp(assert_error, 1);
@@ -169,7 +169,7 @@ void tst_assert_ulong_long(const char *message, unsigned long long expected, uns
     }
 }
 
-void tst_assert_float(const char *message, float expected, float actual) {
+void tst_assert_float(const char *message, const float expected, const float actual) {
     if (fabsf(expected - actual) > FLOAT_EPSILON) {
         printf("\tERROR(%s): expected <%f> and got <%f> \n", message, expected, actual);
         longjmp(assert_error, 1);
@@ -178,7 +178,7 @@ void tst_assert_float(const char *message, float expected, float actual) {
     }
 }
 
-void tst_assert_double(const char *message, double expected, double actual) {
+void tst_assert_double(const char *message, const double expected, const double actual) {
     if (fabs(expected - actual) > DOUBLE_EPSILON) {
         printf("\tERROR(%s): expected <%lf> and got <%lf> \n", message, expected, actual);
         longjmp(assert_error, 1);
@@ -187,7 +187,7 @@ void tst_assert_double(const char *message, double expected, double actual) {
     }
 }
 
-void tst_assert_long_double(const char *message, long double expected, long double actual) {
+void tst_assert_long_double(const char *message, const long double expected, const long double actual) {
     if (fabsl(expected - actual) > DOUBLE_EPSILON) {
         printf("\tERROR(%s): expected <%Lf> and got <%Lf> \n", message, expected, actual);
         longjmp(assert_error, 1);
@@ -196,7 +196,7 @@ void tst_assert_long_double(const char *message, long double expected, long doub
     }
 }
 
-void tst_assert_str(const char *message, char *expected, char *actual) {
+void tst_assert_str(const char *message, const char *expected, const char *actual) {
     if (strcmp(expected, actual) != 0) {
         printf("\tERROR(%s): expected %s and got %s \n", message, expected, actual);
         longjmp(assert_error, 1);
@@ -205,110 +205,110 @@ void tst_assert_str(const char *message, char *expected, char *actual) {
     }
 }
 
-void tst_assert_int8(const char *error_message, int8_t expected, int8_t actual) {
+void tst_assert_int8(const char *message, const int8_t expected, const int8_t actual) {
     if (expected != actual) {
-        printf("\tERROR(%s): expected <%d> and got <%d>\n", error_message, expected, actual);
+        printf("\tERROR(%s): expected <%d> and got <%d>\n", message, expected, actual);
         longjmp(assert_error, 1);
     } else {
-        printf("\tSUCCESS(%s)\n", error_message);
+        printf("\tSUCCESS(%s)\n", message);
     }
 }
 
-void tst_assert_int16(const char *error_message, int16_t expected, int16_t actual) {
+void tst_assert_int16(const char *message, const int16_t expected, const int16_t actual) {
     if (expected != actual) {
-        printf("\tERROR(%s): expected <%d> and got <%d>\n", error_message, expected, actual);
+        printf("\tERROR(%s): expected <%d> and got <%d>\n", message, expected, actual);
         longjmp(assert_error, 1);
     } else {
-        printf("\tSUCCESS(%s)\n", error_message);
+        printf("\tSUCCESS(%s)\n", message);
     }
 }
 
-void tst_assert_int32(const char *error_message, int32_t expected, int32_t actual) {
+void tst_assert_int32(const char *message, const int32_t expected, const int32_t actual) {
     if (expected != actual) {
-        printf("\tERROR(%s): expected <%d> and got <%d>\n", error_message, expected, actual);
+        printf("\tERROR(%s): expected <%d> and got <%d>\n", message, expected, actual);
         longjmp(assert_error, 1);
     } else {
-        printf("\tSUCCESS(%s)\n", error_message);
+        printf("\tSUCCESS(%s)\n", message);
     }
 }
 
-void tst_assert_int64(const char *error_message, int64_t expected, int64_t actual) {
+void tst_assert_int64(const char *message, const int64_t expected, const int64_t actual) {
     if (expected != actual) {
-        printf("\tERROR(%s): expected <%lld> and got <%lld>\n", error_message, expected, actual);
+        printf("\tERROR(%s): expected <%lld> and got <%lld>\n", message, expected, actual);
         longjmp(assert_error, 1);
     } else {
-        printf("\tSUCCESS(%s)\n", error_message);
+        printf("\tSUCCESS(%s)\n", message);
     }
 }
 
-void tst_assert_uint8(const char *error_message, uint8_t expected, uint8_t actual) {
+void tst_assert_uint8(const char *message, const uint8_t expected, const uint8_t actual) {
     if (expected != actual) {
-        printf("\tERROR(%s): expected <%u> and got <%u>\n", error_message, expected, actual);
+        printf("\tERROR(%s): expected <%u> and got <%u>\n", message, expected, actual);
         longjmp(assert_error, 1);
     } else {
-        printf("\tSUCCESS(%s)\n", error_message);
+        printf("\tSUCCESS(%s)\n", message);
     }
 }
 
-void tst_assert_uint16(const char *error_message, uint16_t expected, uint16_t actual) {
+void tst_assert_uint16(const char *message, const uint16_t expected, const uint16_t actual) {
     if (expected != actual) {
-        printf("\tERROR(%s): expected <%u> and got <%u>\n", error_message, expected, actual);
+        printf("\tERROR(%s): expected <%u> and got <%u>\n", message, expected, actual);
         longjmp(assert_error, 1);
     } else {
-        printf("\tSUCCESS(%s)\n", error_message);
+        printf("\tSUCCESS(%s)\n", message);
     }
 }
 
-void tst_assert_uint32(const char *error_message, uint32_t expected, uint32_t actual) {
+void tst_assert_uint32(const char *message, const uint32_t expected, const uint32_t actual) {
     if (expected != actual) {
-        printf("\tERROR(%s): expected <%u> and got <%u>\n", error_message, expected, actual);
+        printf("\tERROR(%s): expected <%u> and got <%u>\n", message, expected, actual);
         longjmp(assert_error, 1);
     } else {
-        printf("\tSUCCESS(%s)\n", error_message);
+        printf("\tSUCCESS(%s)\n", message);
     }
 }
 
-void tst_assert_uint64(const char *error_message, uint64_t expected, uint64_t actual) {
+void tst_assert_uint64(const char *message, const uint64_t expected, const uint64_t actual) {
     if (expected != actual) {
-        printf("\tERROR(%s): expected <%llu> and got <%llu>\n", error_message, expected, actual);
+        printf("\tERROR(%s): expected <%llu> and got <%llu>\n", message, expected, actual);
         longjmp(assert_error, 1);
     } else {
-        printf("\tSUCCESS(%s)\n", error_message);
+        printf("\tSUCCESS(%s)\n", message);
     }
 }
 
-void tst_assert_size(const char *error_message, size_t expected, size_t actual) {
+void tst_assert_size(const char *message, const size_t expected, const size_t actual) {
     if (expected != actual) {
-        printf("\tERROR(%s): expected <%zu> and got <%zu>\n", error_message, expected, actual);
+        printf("\tERROR(%s): expected <%zu> and got <%zu>\n", message, expected, actual);
         longjmp(assert_error, 1);
     } else {
-        printf("\tSUCCESS(%s)\n", error_message);
+        printf("\tSUCCESS(%s)\n", message);
     }
 }
 
-void tst_assert_intptr(const char *error_message, intptr_t expected, intptr_t actual) {
+void tst_assert_intptr(const char *message, const intptr_t expected, const intptr_t actual) {
     if (expected != actual) {
-        printf("\tERROR(%s): expected <%jd> and got <%jd>\n", error_message, (intmax_t)expected, (intmax_t)actual);
+        printf("\tERROR(%s): expected <%jd> and got <%jd>\n", message, (intmax_t) expected, (intmax_t) actual);
         longjmp(assert_error, 1);
     } else {
-        printf("\tSUCCESS(%s)\n", error_message);
+        printf("\tSUCCESS(%s)\n", message);
     }
 }
 
-void tst_assert_uintptr(const char *error_message, uintptr_t expected, uintptr_t actual) {
+void tst_assert_uintptr(const char *message, const uintptr_t expected, const uintptr_t actual) {
     if (expected != actual) {
-        printf("\tERROR(%s): expected <%ju> and got <%ju>\n", error_message, (uintmax_t)expected, (uintmax_t)actual);
+        printf("\tERROR(%s): expected <%ju> and got <%ju>\n", message, (uintmax_t) expected, (uintmax_t) actual);
         longjmp(assert_error, 1);
     } else {
-        printf("\tSUCCESS(%s)\n", error_message);
+        printf("\tSUCCESS(%s)\n", message);
     }
 }
 
-void tst_assert_ptrdiff(const char *error_message, ptrdiff_t expected, ptrdiff_t actual) {
+void tst_assert_ptrdiff(const char *message, const ptrdiff_t expected, const ptrdiff_t actual) {
     if (expected != actual) {
-        printf("\tERROR(%s): expected <%jd> and got <%jd>\n", error_message, (intmax_t)expected, (intmax_t)actual);
+        printf("\tERROR(%s): expected <%jd> and got <%jd>\n", message, (intmax_t) expected, (intmax_t) actual);
         longjmp(assert_error, 1);
     } else {
-        printf("\tSUCCESS(%s)\n", error_message);
+        printf("\tSUCCESS(%s)\n", message);
     }
 }

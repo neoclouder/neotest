@@ -23,5 +23,5 @@ add_test(NAME test_neotest_ko COMMAND test_neotest_ko)
 set_tests_properties(test_neotest_ko PROPERTIES WILL_FAIL true)
 
 # --- Coverage reports
-set(TEST_TARGETS test_neotest_ok test_neotest_ko)
-neo_enable_coverage_reports(${TEST_TARGETS})
+#set(TEST_TARGETS test_neotest_ok test_neotest_ko)
+#neo_enable_coverage_reports(${TEST_TARGETS})
